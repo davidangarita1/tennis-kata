@@ -18,9 +18,15 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score;
-        if (scorePlayer1 == scorePlayer2) score = equalScoreString();
-        else if (scorePlayer1 >=4 || scorePlayer2 >=4) score = scoreGreaterThan4();
-        else score = differentScore(scorePlayer1) + "-" + differentScore(scorePlayer2);
+        if (scorePlayer1 == scorePlayer2) {
+            score = equalScoreString();
+        }
+        else if (scorePlayer1 >=4 || scorePlayer2 >=4) {
+            score = scoreGreaterThan4();
+        }
+        else {
+            score = differentScore(scorePlayer1) + "-" + differentScore(scorePlayer2);
+        }
         return score;
     }
 
