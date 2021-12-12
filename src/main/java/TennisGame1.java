@@ -17,40 +17,21 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
-        int tempScore = 0;
-        if (scorePlayer1 == scorePlayer2)
-        {
-            score = equalScoreString();
-        }
-        else if (scorePlayer1 >=4 || scorePlayer2 >=4)
-        {
-            score = scoreGreaterThan4();
-        }
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
-                if (i==1) tempScore = scorePlayer1;
-                else { score+="-"; tempScore = scorePlayer2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
-            }
-        }
+        String score;
+        if (scorePlayer1 == scorePlayer2) score = equalScoreString();
+        else if (scorePlayer1 >=4 || scorePlayer2 >=4) score = scoreGreaterThan4();
+        else score = differentScore(scorePlayer1) + "-" + differentScore(scorePlayer2);
         return score;
+    }
+
+    private String differentScore(int scorePlayer) {
+        switch(scorePlayer)
+        {
+            case 0: return "Love";
+            case 1: return "Fifteen";
+            case 2: return "Thirty";
+            default: return "Forty";
+        }
     }
 
     private String scoreGreaterThan4() {
@@ -62,10 +43,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String advantageScore(int minusResult){
-        switch(minusResult){
-            case 1: return "Advantage player1";
-            default: return "Advantage player2";
-        }
+        return minusResult == 1 ? "Advantage player1" : "Advantage player2";
     }
 
     private String winScore(int minusResult){
