@@ -22,13 +22,26 @@ public class TennisGame3 implements TennisGame {
     }
 
     private boolean scoreIsLowerThan4() {
-        return scorePlayer1 < 4 && scorePlayer2 < 4 && scorePlayer1 + scorePlayer2 != 6;
+        return bothScoreLowerThan4() && aditionDifferentTo6();
+    }
+
+    private boolean bothScoreLowerThan4() {
+        return scorePlayer1 < 4 && scorePlayer2 < 4;
+    }
+
+    private boolean aditionDifferentTo6() {
+        return scorePlayer1 + scorePlayer2 != 6;
     }
 
     private String greaterThan4() {
-        String score;
-        score = scorePlayer1 > scorePlayer2 ? player1Name : player2Name;
-        return ((scorePlayer1 - scorePlayer2) * (scorePlayer1 - scorePlayer2) == 1) ? "Advantage " + score : "Win for " + score;
+        String playerName = getPlayerName();
+        return ((scorePlayer1 - scorePlayer2) * (scorePlayer1 - scorePlayer2) == 1) ? "Advantage " + playerName : "Win for " + playerName;
+    }
+
+    private String getPlayerName() {
+        String playerName;
+        playerName = scorePlayer1 > scorePlayer2 ? player1Name : player2Name;
+        return playerName;
     }
 
     private String lowerThan4() {
