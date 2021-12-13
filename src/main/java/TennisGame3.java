@@ -22,14 +22,14 @@ public class TennisGame3 implements TennisGame {
     }
 
     private boolean scoreIsLowerThan4() {
-        return bothScoreLowerThan4() && aditionDifferentTo6();
+        return bothScoreLowerThan4() && additionDifferentTo6();
     }
 
     private boolean bothScoreLowerThan4() {
         return scorePlayer1 < 4 && scorePlayer2 < 4;
     }
 
-    private boolean aditionDifferentTo6() {
+    private boolean additionDifferentTo6() {
         return scorePlayer1 + scorePlayer2 != 6;
     }
 
