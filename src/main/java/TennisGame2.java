@@ -59,19 +59,10 @@ public class TennisGame2 implements TennisGame
         return minusResult >= 2 ? "Win for player1": "Win for player2";
     }
 
-
-    public void P1Score(){
-        p1Point++;
-    }
-    
-    public void P2Score(){
-        p2Point++;
-    }
-
     public void wonPoint(String player) {
-        if (player == "player1")
-            P1Score();
+        if (player.equals(this.player1Name))
+            p1Point++;
         else
-            P2Score();
+            p2Point++;
     }
 }
