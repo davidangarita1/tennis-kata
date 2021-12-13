@@ -35,7 +35,11 @@ public class TennisGame3 implements TennisGame {
 
     private String greaterThan4() {
         String playerName = getPlayerName();
-        return ((scorePlayer1 - scorePlayer2) * (scorePlayer1 - scorePlayer2) == 1) ? "Advantage " + playerName : "Win for " + playerName;
+        return scoreAdvantageOrWin() ? "Advantage " + playerName : "Win for " + playerName;
+    }
+
+    private boolean scoreAdvantageOrWin() {
+        return (scorePlayer1 - scorePlayer2) * (scorePlayer1 - scorePlayer2) == 1;
     }
 
     private String getPlayerName() {
